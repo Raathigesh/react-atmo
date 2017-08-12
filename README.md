@@ -1,6 +1,6 @@
 # React Atmo
 
-React atmo is a custom renderer for [express](https://expressjs.com/).
+React atmo is a custom renderer for [express](https://expressjs.com/). This is an experimental project, supports very minimal features and not suitable for production apps. But it's an awesome fit for creating mock APIs for demos and presentations.
 
 ## Getting Started
 
@@ -18,7 +18,7 @@ Atmo.listen(
   <server port="9000">
     <route method="get" url="/unicorns">
       <response>
-        {() => ({
+        {(request, response) => ({
           name: "Adiana",
           description: "The fiery one"
         })}
@@ -75,10 +75,16 @@ Represents a response header
   
 There are bunch of short hand headers for the commonly used headers as follows.
 
-* jsonContentType - Adds JSON content type header
-* xmlContentType - Adds XML content type header
-* textContentType - Adds text content type header
-* crossOrigin - Cross origin header
+* <jsonContentType /> - Adds JSON content type header
+* <xmlContentType /> - Adds XML content type header
+* <textContentType /> - Adds text content type header
+* <crossOrigin /> - Cross origin header
+
+### `<delay>`
+If you are creating a mock API and wants to simulate slowness, delay is the one you are looking for. The time is provided in milliseconds. Delay should be a direct children of an endpoint.
+```
+<delay time={1000} />
+```
 
 ## Inspiration and Reference
 [React-ionize](https://github.com/mhink/react-ionize) is a react custom renderer which targets electron. I have used react-ionize as a reference to build react-atmo. Infact I have used it as a boilerplate.
