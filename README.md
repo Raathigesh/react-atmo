@@ -35,7 +35,7 @@ Atmo.listen(
 
 ## API
 ### `Atmo.listen(element, [callback])`
-Starts an electron app.
+Starts an express server.
 
 ## Elements
 ### `<server>`
