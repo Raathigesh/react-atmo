@@ -8,8 +8,6 @@ React atmo is a custom renderer for [express](https://expressjs.com/).
 npm install --save react-atmo
 ```
 
-Take a look at [Ionize Example App](https://github.com/mhink/ionize-example-app) to get started.
-
 ## Hello, world!
 
 ```js
