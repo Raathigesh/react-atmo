@@ -10,6 +10,7 @@
   "author": "Raathigeshan Kugarajan <raathigesh92@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "chalk": "^2.1.0",
     "express": "^4.15.4",
     "react": "16.0.0-alpha.5",
     "react-dom": "16.0.0-alpha.5"
@@ -22,7 +23,11 @@
   "bugs": {
     "url": "https://github.com/raathigesh/react-atmo/issues"
   },
-  "files": ["lib", "package.json", "README.md"],
+  "files": [
+    "lib",
+    "package.json",
+    "README.md"
+  ],
   "keywords": [
     "react",
     "reactjs",

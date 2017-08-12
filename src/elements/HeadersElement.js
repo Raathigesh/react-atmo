@@ -12,18 +12,9 @@ export default class HeadersElement extends BaseElement {
     return this.rootContainer.app;
   }
 
-  // Hook up event handlers, if they exist
-  finalizeBeforeMount(type, props) {
-    return true;
-  }
-
   appendChildBeforeMount(child) {
     if (child instanceof HeaderElement) {
       this.items.push(child);
     }
   }
-
-  commitMount(newProps) {}
-
-  finalizeBeforeRemoval() {}
 }

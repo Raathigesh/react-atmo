@@ -1,6 +1,8 @@
 import { createExpressInstance } from "./elements";
 
-/* IonizeHostConfig
+// This file is a shamless copy of https://github.com/mhink/react-ionize/blob/master/src/IonizeHostConfig.js
+
+/* AtmoHostConfig
  *
  * These functions constitute a module, which is the 'piece' of Ionize which
  * integrates with React Fiber. RF calls into these at specific times during

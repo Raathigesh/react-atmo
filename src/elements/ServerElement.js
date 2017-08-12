@@ -1,4 +1,5 @@
 import BaseElement from "./BaseElement";
+import chalk from "chalk";
 
 export default class ServerElement extends BaseElement {
   constructor(props, rootContainer) {
@@ -12,15 +13,16 @@ export default class ServerElement extends BaseElement {
     return this.rootContainer.app;
   }
 
-  // Hook up event handlers, if they exist
-  finalizeBeforeMount(type, props) {
-    this.rootContainer.app.listen(Number(props.port), () => {
-      console.log("Started...");
+  commitMount(newProps) {
+    this.rootContainer.app.listen(Number(newProps.port), () => {
+      console.log(
+        chalk.blue(
+          "Server started on ",
+          chalk.underline.bgBlue(
+            chalk.whiteBright(` http://localhost:${newProps.port} `)
+          )
+        )
+      );
     });
-    return true;
   }
-
-  commitMount(newProps) {}
-
-  finalizeBeforeRemoval() {}
 }

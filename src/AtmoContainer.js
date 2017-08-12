@@ -1,4 +1,4 @@
-import { ServerElement, BaseElement } from "./elements";
+import { ServerElement } from "./elements";
 
 export default class AtmoContainer {
   constructor(expressApp) {

@@ -11,12 +11,8 @@ export default class DelayElement extends BaseElement {
     return this.rootContainer.app;
   }
 
-  finalizeBeforeMount(type, props) {
-    this.time = props.time;
+  commitMount(newProps) {
+    this.time = newProps.time;
     return true;
   }
-
-  commitMount(newProps) {}
-
-  finalizeBeforeRemoval() {}
 }

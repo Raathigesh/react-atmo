@@ -10,14 +10,9 @@ export default class JsonContentType extends HeaderElement {
     return this.rootContainer.app;
   }
 
-  // Hook up event handlers, if they exist
-  finalizeBeforeMount(type, props) {
+  commitMount() {
     this.name = "content-type";
     this.value = "application/json";
     return true;
   }
-
-  commitMount(newProps) {}
-
-  finalizeBeforeRemoval() {}
 }

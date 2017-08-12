@@ -12,14 +12,9 @@ export default class HeaderElement extends BaseElement {
     return this.rootContainer.app;
   }
 
-  // Hook up event handlers, if they exist
-  finalizeBeforeMount(type, props) {
-    this.name = props.name;
-    this.value = props.value;
+  commitMount(newProps) {
+    this.name = newProps.name;
+    this.value = newProps.value;
     return true;
   }
-
-  commitMount(newProps) {}
-
-  finalizeBeforeRemoval() {}
 }

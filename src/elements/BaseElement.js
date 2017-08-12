@@ -1,25 +1,22 @@
-const SUPPORTED_PROPS = {};
-
 export default class BaseElement {
   constructor(props, rootContainer) {}
 
   appendChildBeforeMount(child) {}
 
   finalizeBeforeMount(type, props, rootContainerInstance) {
-    return false;
+    return true;
   }
 
   finalizeBeforeRemoval() {}
 
   commitMount(newProps) {}
 
-  // TODO: There's probably a better way
   getPublicInstance() {
     return this;
   }
 
   getSupportedProps() {
-    return SUPPORTED_PROPS;
+    return {};
   }
 
   prepareUpdate(oldProps, newProps, rootContainerInstance) {
@@ -55,12 +52,4 @@ export default class BaseElement {
       return updatePayload;
     }
   }
-
-  commitUpdate(updatePayload, oldProps, newProps) {}
-
-  appendChild(child) {}
-
-  insertBefore(child) {}
-
-  removeChild(child) {}
 }

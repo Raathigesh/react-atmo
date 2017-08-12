@@ -6,7 +6,6 @@ import DelayElement from "./DelayElement";
 export default class RouteElement extends BaseElement {
   constructor(props, rootContainer) {
     super(props, rootContainer);
-
     this.rootContainer = rootContainer;
     this.headers = null;
     this.response = null;
@@ -17,9 +16,8 @@ export default class RouteElement extends BaseElement {
     return this.rootContainer.app;
   }
 
-  // Hook up event handlers, if they exist
-  finalizeBeforeMount(type, props) {
-    this.rootContainer.app[props.method](props.url, (req, res) => {
+  commitMount(newProps) {
+    this.rootContainer.app[newProps.method](newProps.url, (req, res) => {
       for (const i in this.headers.items) {
         const header = this.headers.items[i];
         res.set(header.name, header.value);
@@ -47,8 +45,4 @@ export default class RouteElement extends BaseElement {
       this.delay = child.time;
     }
   }
-
-  commitMount(newProps) {}
-
-  finalizeBeforeRemoval() {}
 }

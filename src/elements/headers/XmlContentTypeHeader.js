@@ -10,14 +10,9 @@ export default class XmlContentType extends HeaderElement {
     return this.rootContainer.app;
   }
 
-  // Hook up event handlers, if they exist
-  finalizeBeforeMount(type, props) {
+  commitMount() {
     this.name = "content-type";
     this.value = "text/xml";
     return true;
   }
-
-  commitMount(newProps) {}
-
-  finalizeBeforeRemoval() {}
 }

@@ -10,14 +10,9 @@ export default class CrossOrigin extends HeaderElement {
     return this.rootContainer.app;
   }
 
-  // Hook up event handlers, if they exist
-  finalizeBeforeMount(type, props) {
+  commitMount() {
     this.name = "Access-Control-Allow-Origin";
     this.value = "*";
     return true;
   }
-
-  commitMount(newProps) {}
-
-  finalizeBeforeRemoval() {}
 }
