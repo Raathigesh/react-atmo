@@ -33,6 +33,8 @@ Atmo.listen(
 );
 ```
 
+Take a look at the sample project [here](https://github.com/Raathigesh/react-atmo-sample). This sample project rebuilds on file changes, thanks to [backpack](https://github.com/jaredpalmer/backpack), a create-react-app like toolchain for node projects.
+
 ## API
 ### `Atmo.listen(element, [callback])`
 Starts an express server.
