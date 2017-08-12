@@ -3,17 +3,17 @@ import Atmo from "../src";
 
 Atmo.listen(
   <server port="9000">
-    <route method="get" url="/user/capability">
+    <route method="get" url="/unicorns">
       <response>
         {() => ({
-          user: "Adlee",
-          isAdmin: false
+          name: "Adiana",
+          description: "The fiery one"
         })}
       </response>
       <headers>
-        <header name="content-type" value="application/json" />
         <jsonContentType />
         <crossOrigin />
+        <header name="x-powered-by" value="Unicorn JS" />
       </headers>
     </route>
   </server>
