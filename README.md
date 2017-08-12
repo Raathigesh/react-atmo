@@ -1,6 +1,6 @@
 # React Atmo
 
-React atmo is a custom renderer for [express](https://expressjs.com/). This is an experimental project, supports very minimal features and not suitable for production apps. But it's an awesome fit for creating mock APIs for demos and presentations.
+React atmo is a custom renderer for [express](https://expressjs.com/). This is an experimental project, supports very minimal features and not suitable for production apps. **But it's a great fit for creating mock APIs for demos and presentations.**
 
 ## Getting Started
 
