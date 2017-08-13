@@ -1,8 +1,7 @@
 import { ServerElement } from "./elements";
 
 export default class AtmoContainer {
-  constructor(expressApp) {
-    this.app = expressApp;
+  constructor() {
     this.appElement = null;
   }
 

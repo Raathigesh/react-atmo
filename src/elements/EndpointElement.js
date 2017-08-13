@@ -10,30 +10,12 @@ export default class RouteElement extends BaseElement {
     this.headers = null;
     this.response = null;
     this.delay = null;
+    this.method = null;
+    this.url = null;
   }
 
   getPublicInstance() {
     return this.rootContainer.app;
-  }
-
-  commitMount(newProps) {
-    this.rootContainer.app[newProps.method](newProps.url, (req, res) => {
-      for (const i in this.headers.items) {
-        const header = this.headers.items[i];
-        res.set(header.name, header.value);
-      }
-
-      const response = this.response.responseCallBack(req, res);
-
-      if (this.delay !== null) {
-        setTimeout(() => {
-          res.send(response);
-        }, this.delay);
-      } else {
-        res.send(response);
-      }
-    });
-    return true;
   }
 
   appendChildBeforeMount(child) {
@@ -44,5 +26,11 @@ export default class RouteElement extends BaseElement {
     } else if (child instanceof DelayElement) {
       this.delay = child.time;
     }
+  }
+
+  commitMount(newProps) {
+    this.method = newProps.method;
+    this.url = newProps.url;
+    return true;
   }
 }
