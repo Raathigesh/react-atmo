@@ -8,10 +8,6 @@ export default class HeaderElement extends BaseElement {
     this.value = "";
   }
 
-  getPublicInstance() {
-    return this.rootContainer.app;
-  }
-
   commitMount(newProps) {
     this.name = newProps.name;
     this.value = newProps.value;

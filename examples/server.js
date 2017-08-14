@@ -1,37 +1,43 @@
-import React from "react";
+import React, { Component } from "react";
 import Atmo, { Headers } from "../src";
 
-Atmo.listen(
-  <servers>
-    <server port="9000">
-      <route method="get" url="/unicorns">
-        <response>
-          {() => ({
-            name: "Adiana",
-            description: "The fiery one"
-          })}
-        </response>
-        <headers>
-          <Headers.CrossOriginHeader />
-          <Headers.JsonContentTypeHeader />
-          <header name="x-powered-by" value="Unicorn JS" />
-        </headers>
-      </route>
-    </server>
-    <server port="9001">
-      <route method="get" url="/unicorns">
-        <response>
-          {() => ({
-            name: "Adiana",
-            description: "The fiery one from server 2"
-          })}
-        </response>
-        <headers>
-          <Headers.CrossOriginHeader />
-          <Headers.JsonContentTypeHeader />
-          <header name="x-powered-by" value="Unicorn JS" />
-        </headers>
-      </route>
-    </server>
-  </servers>
-);
+class Server extends Component {
+  constructor() {
+    super();
+    this.componentDidMount = this.componentDidMount.bind(this);
+    this.state = {
+      showElement: true
+    };
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        showElement: false
+      });
+    }, 6000);
+  }
+
+  render() {
+    return (
+      <server port="9001">
+        <route method="get" url="/unicorns">
+          <response>
+            {() => ({
+              name: "Adiana",
+              description: "The fiery one from server 2"
+            })}
+          </response>
+          <headers>
+            <Headers.CrossOriginHeader />
+            <Headers.JsonContentTypeHeader />
+            <header name="x-powered-by" value="Unicorn JS" />
+          </headers>
+          {this.state.showElement && <delay time={1000} />}
+        </route>
+      </server>
+    );
+  }
+}
+
+Atmo.listen(<Server />);

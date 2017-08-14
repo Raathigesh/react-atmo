@@ -8,13 +8,13 @@ export default class HeadersElement extends BaseElement {
     this.items = [];
   }
 
-  getPublicInstance() {
-    return this.rootContainer.app;
-  }
-
   appendChildBeforeMount(child) {
     if (child instanceof HeaderElement) {
       this.items.push(child);
     }
+  }
+
+  removeChild(child) {
+    this.items = this.items.filter(item => item !== child);
   }
 }

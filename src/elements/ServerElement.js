@@ -9,6 +9,7 @@ export default class ServerElement extends BaseElement {
 
     this.rootContainer = rootContainer;
     this.expressApp = express();
+    this.server = null;
     this.endpoints = [];
   }
 
@@ -23,6 +24,18 @@ export default class ServerElement extends BaseElement {
   }
 
   commitMount(newProps) {
+    this.restartServer(newProps);
+  }
+
+  prepareUpdate() {
+    return {};
+  }
+
+  commitUpdate(updatePayload, oldProps, newProps) {
+    this.restartServer(newProps);
+  }
+
+  restartServer(props) {
     this.endpoints.forEach(endpoint => {
       this.expressApp[endpoint.method](endpoint.url, (req, res) => {
         for (const header of endpoint.headers.items) {
@@ -41,12 +54,17 @@ export default class ServerElement extends BaseElement {
       });
     }, this);
 
-    this.expressApp.listen(Number(newProps.port), () => {
+    // try closing the previous server instance
+    if (this.server) {
+      this.server.close();
+    }
+
+    this.server = this.expressApp.listen(Number(props.port), () => {
       console.log(
         chalk.blue(
           "Server started on ",
           chalk.underline.bgBlue(
-            chalk.whiteBright(` http://localhost:${newProps.port} `)
+            chalk.whiteBright(` http://localhost:${props.port} `)
           )
         )
       );

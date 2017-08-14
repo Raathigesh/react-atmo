@@ -137,17 +137,13 @@ export function createTextInstance(
   throw new Error(
     "TextElements are not supported yet! (do you have some text in your JSX?)"
   );
-  // return new TextElement(text, rootContainerInstance);
 }
 
 export function commitTextUpdate(textElement, oldText, newText) {
   throw new Error(
     "how did you even get a TextElement into the component tree?!"
   );
-  // return textElement.commitUpdate(oldText, newText);
 }
-
-const DEFAULT_HOST_CONTEXT = {};
 
 // Now, this is an interesting piece of functionality. This basically works
 // like context in React components, except it's for _instances_.
@@ -156,7 +152,7 @@ const DEFAULT_HOST_CONTEXT = {};
 // to create a new HostContext which will be provided to its own children. The
 // 'container' (that is, the root under which every element gets mounted).
 export function getRootHostContext(rootContainerInstance) {
-  return DEFAULT_HOST_CONTEXT;
+  return {};
 }
 
 export function getChildHostContext(parentHostContext, type) {

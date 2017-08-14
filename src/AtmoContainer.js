@@ -3,6 +3,7 @@ import { ServerElement } from "./elements";
 export default class AtmoContainer {
   constructor() {
     this.appElement = null;
+    this.specs = {};
   }
 
   appendChild(child) {
