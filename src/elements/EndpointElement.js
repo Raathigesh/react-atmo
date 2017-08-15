@@ -8,7 +8,9 @@ export default class RouteElement extends BaseElement {
     super(props, rootContainer, context);
 
     this.rootContainer = rootContainer;
-    this.headers = null;
+    this.headers = {
+      items: []
+    };
     this.response = null;
     this.delay = null;
     this.method = null;
@@ -21,7 +23,7 @@ export default class RouteElement extends BaseElement {
     } else if (child instanceof ResponseElement) {
       this.response = child;
     } else if (child instanceof DelayElement) {
-      this.delay = child.time;
+      this.delay = child;
     }
   }
 

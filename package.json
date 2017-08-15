@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "babel src/ --out-dir lib/",
-    "start": "babel-node ./examples/server.js"
+    "start": "babel-node ./examples/simulateDelay.js"
   },
   "author": "Raathigeshan Kugarajan <raathigesh92@gmail.com>",
   "license": "MIT",
@@ -25,11 +25,7 @@
   "bugs": {
     "url": "https://github.com/raathigesh/react-atmo/issues"
   },
-  "files": [
-    "lib",
-    "package.json",
-    "README.md"
-  ],
+  "files": ["lib", "package.json", "README.md"],
   "keywords": [
     "react",
     "reactjs",

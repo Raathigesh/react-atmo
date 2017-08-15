@@ -9,7 +9,9 @@ export default class ServerElement extends BaseElement {
     super(props, rootContainer);
     this.expressApp = express();
     this.server = null;
-    this.middlewares = null;
+    this.middlewares = {
+      items: []
+    };
     this.endpoints = [];
   }
 
@@ -68,11 +70,10 @@ export default class ServerElement extends BaseElement {
         }
 
         const response = endpoint.response.responseCallBack(req, res);
-
-        if (this.delay !== null) {
+        if (endpoint.delay && endpoint.delay.time !== 0) {
           setTimeout(() => {
             res.send(response);
-          }, this.delay);
+          }, endpoint.delay.time);
         } else {
           res.send(response);
         }
