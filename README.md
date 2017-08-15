@@ -17,8 +17,8 @@
 
 React atmo is a custom renderer for [express js](https://expressjs.com/). This is an experimental project, supports very minimal features and not suitable for production apps. **But it's a great fit for creating mock APIs for demos and presentations.**
 
-## But, Why?
-Beacause, Why not?
+## Is this a good idea?
+I'm pretty sure it's not! But it's a lot of fun!
 
 ## Getting Started
 
@@ -32,7 +32,7 @@ yarn add react-atmo
 
 ```javascript
 import React from "react";
-import Atmo, { Headers } from "../src";
+import Atmo, { Headers } from "react-atmo";
 
 Atmo.listen(
   <server port="9001">
