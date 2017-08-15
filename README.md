@@ -1,6 +1,6 @@
-<div align="center">
- <img src="./docs/ReactAtmo.png" width="400" alt="react-atmo" > 
-</div>
+<p align="center">
+ <img src="./docs/ReactAtmo.png" width="600" alt="react-atmo" > 
+</p>
 
 <p align="center"> 
   <a href="https://github.com/Raathigesh/react-atmo/blob/master/LICENSE">
