@@ -7,7 +7,7 @@
     <img src="https://img.shields.io/npm/l/express.svg?maxAge=2592000&style=flat-square"
          alt="License">
   </a>
-  <a href="https://www.npmjs.com/package/reat-atmo">
+  <a href="https://www.npmjs.com/packages/react-atmo">
     <img src="https://img.shields.io/npm/v/npm.svg?style=flat-square"
          alt="NPM Version">
   </a>
