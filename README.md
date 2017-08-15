@@ -8,7 +8,7 @@
          alt="License">
   </a>
   <a href="https://www.npmjs.com/package/reat-atmo">
-    <img src="https://img.shields.io/npm/v/reat-atmo.svg?style=flat-square"
+    <img src="https://img.shields.io/npm/v/npm.svg?style=flat-square"
          alt="NPM Version">
   </a>
 </p>
