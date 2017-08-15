@@ -195,7 +195,7 @@ Atmo.listen(
 ## Kitchen sink
 ```javascript
 import React, { Component } from "react";
-import Atmo, { Headers, Status } from "../src";
+import Atmo, { Headers, Status } from "react-atmo";
 
 Atmo.listen(
   <server port="9001">
