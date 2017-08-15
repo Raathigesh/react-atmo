@@ -15,12 +15,15 @@
 
 
 
-React atmo is a custom renderer for [express](https://expressjs.com/). This is an experimental project, supports very minimal features and not suitable for production apps. **But it's a great fit for creating mock APIs for demos and presentations.**
+React atmo is a custom renderer for [express js](https://expressjs.com/). This is an experimental project, supports very minimal features and not suitable for production apps. **But it's a great fit for creating mock APIs for demos and presentations.**
+
+## But, Why?
+Beacause, Why not?
 
 ## Getting Started
 
 ```
-npm install --save react-atmo
+yarn add react-atmo
 ```
 
 ## Hello, world!
@@ -62,11 +65,12 @@ Starts an express server.
 ### `<server>`
 Creates a server app and starts listening on the provided port
 
-> `port` | Port to start the server
+> `port` | Server port
 
 ### `<route>`
 Attaches the route to the express app
 > `method` | Http method name for the route.
+
 > `url` | Url of the route.
 
 ### `<response>`
@@ -85,17 +89,18 @@ Response function also receives request and response objects of express, if you 
 ```
 
 ### `<headers>`
-Takes headers as children.
+Takes ```<header />``` as children.
 
 #### `<header>`
 Represents a response header
 ```javascript
 <header name="x-powered-by" value="Unicorn JS" />
 ```
-> `name` | Header name  
+> `name` | Header name
+
 > `value` | Header value
   
-There are bunch of headers available for you to use.
+Save some typing and use the following header presets.
 
 ```javascript
 import Atmo, { Headers } from "react-atmo";
@@ -106,9 +111,9 @@ import Atmo, { Headers } from "react-atmo";
 ### `<status>`
 > `code` | Satus code number
 
-Childen of the ```<route />``` element.
+Should be a childen of the ```<route />``` element.
 
-There are bunch of status codes available for you to use.
+Save some typing and use the following status presets.
 ```javascript
 import Atmo, { Status } from "react-atmo";
 ```
@@ -128,26 +133,99 @@ If you are creating a mock API and wants to simulate slowness, delay is the one 
 > `time` | Delay in milliseconds.
 
 
-## <middlewares>
+## `<middlewares>`
 Accepts ```<middleware />``` as children.
 
-### static middleware
+### `<static>`
+The static middleware.
 ```javascript
 <static path="./" />
 ```
 > `path` | Path of the folder to expose as static directory.
 
-### bodyparser middleware
+### `<bodyparser>`
+The body parser middleware.
 ```javascript
 <bodyparser />
 ```
-### custom middleware
+
+### `<middleware>`
+Your own, custom middleware.
 ```javascript
 <middleware>
 {app => {
   // use the app and do whatever you want
 }}
 </middleware>
+```
+
+### `<servers>`
+When you are not happy with a single instance and wants multiple apps listening on different ports.
+
+```javascripts
+import React, { Component } from "react";
+import Atmo from "react-atmo";
+
+Atmo.listen(
+  <servers>
+    <server port="9001">    
+      <route method="get" url="/unicorns">
+        <response>
+          {() => ({
+            name: "Adiana",
+            description: "The fiery one"
+          })}
+        </response>
+      </route>
+    </server>
+    <server port="9002">    
+      <route method="get" url="/unicorns">
+        <response>
+          {() => ({
+            name: "Adiana",
+            description: "The fiery one, from server 2"
+          })}
+        </response>
+      </route>
+    </server>
+  </servers>
+);
+```
+
+## Kitchen sink
+```javascript
+import React, { Component } from "react";
+import Atmo, { Headers, Status } from "../src";
+
+Atmo.listen(
+  <server port="9001">
+    <middlewares>
+      <static path="./" />
+      <bodyparser />
+      <middleware>
+        {app => {
+          // use the app and do whatever you want
+        }}
+      </middleware>
+    </middlewares>
+    <route method="get" url="/unicorns">
+      <headers>
+        <Headers.CrossOriginHeader />
+        <Headers.JsonContentTypeHeader />
+        <header name="x-powered-by" value="Unicorn JS" />
+      </headers>
+      <response>
+        {() => ({
+          name: "Adiana",
+          description: "The fiery one"
+        })}
+      </response>
+      <delay time={3000} />
+      <Status.Ok />
+    </route>
+  </server>
+);
+
 ```
 
 ## Inspiration and Reference
