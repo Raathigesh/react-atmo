@@ -1,4 +1,19 @@
-# React Atmo
+<h1 align="center">
+ React Atmo 
+</h1>
+
+<p align="center">
+  <a href="https://github.com/Raathigesh/react-atmo/blob/master/LICENSE">
+    <img src="https://img.shields.io/npm/l/express.svg?maxAge=2592000&style=flat-square"
+         alt="License">
+  </a>
+  <a href="https://www.npmjs.com/package/reat-atmo">
+    <img src="https://img.shields.io/npm/v/reat-atmo.svg?style=flat-square"
+         alt="NPM Version">
+  </a>
+</p>
+
+
 
 React atmo is a custom renderer for [express](https://expressjs.com/). This is an experimental project, supports very minimal features and not suitable for production apps. **But it's a great fit for creating mock APIs for demos and presentations.**
 
@@ -35,7 +50,9 @@ Atmo.listen(
 );
 ```
 
-Take a look at the sample project [here](https://github.com/Raathigesh/react-atmo-sample). This sample project rebuilds on file changes, thanks to [backpack](https://github.com/jaredpalmer/backpack), a create-react-app like toolchain for node projects.
+**Take a look at the sample project [here](https://github.com/Raathigesh/react-atmo-sample).** Comes with watch mode, thanks to [backpack](https://github.com/jaredpalmer/backpack), a create-react-app like toolchain for node projects.
+
+Also look at the examples [here](https://github.com/Raathigesh/react-atmo/tree/master/examples).
 
 ## API
 ### `Atmo.listen(element, [callback])`
@@ -119,6 +136,19 @@ Accepts ```<middleware />``` as children.
 <static path="./" />
 ```
 > `path` | Path of the folder to expose as static directory.
+
+### bodyparser middleware
+```javascript
+<bodyparser />
+```
+### custom middleware
+```javascript
+<middleware>
+{app => {
+  // use the app and do whatever you want
+}}
+</middleware>
+```
 
 ## Inspiration and Reference
 [React-ionize](https://github.com/mhink/react-ionize) is a react custom renderer which targets electron. I have used react-ionize as a reference to build react-atmo. Infact I have used it as a boilerplate.
