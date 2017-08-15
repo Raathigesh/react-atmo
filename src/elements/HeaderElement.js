@@ -8,9 +8,20 @@ export default class HeaderElement extends BaseElement {
     this.value = "";
   }
 
+  getSupportedProps() {
+    return {
+      name: true,
+      value: true
+    };
+  }
+
   commitMount(newProps) {
     this.name = newProps.name;
     this.value = newProps.value;
-    return true;
+  }
+
+  commitUpdate(updatePayload, oldProps, newProps) {
+    this.name = newProps.name;
+    this.value = newProps.value;
   }
 }

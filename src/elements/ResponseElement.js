@@ -13,6 +13,9 @@ export default class ResponseElement extends BaseElement {
 
   commitMount(newProps) {
     this.responseCallBack = newProps.children;
-    return true;
+  }
+
+  commitUpdate(updatePayload, oldProps, newProps) {
+    this.responseCallBack = newProps.children;
   }
 }

@@ -1,8 +1,8 @@
 import { AtmoFiber, AtmoRenderer } from "./AtmoFiber";
-import CrossOriginHeader from "./components/CrossOriginHeader";
-import JsonContentTypeHeader from "./components/JsonContentTypeHeader";
-import TextContentTypeHeader from "./components/TextContentTypeHeader";
-import XmlContentTypeHeader from "./components/XmlContentTypeHeader";
+import CrossOriginHeader from "./components/headers/CrossOriginHeader";
+import JsonContentTypeHeader from "./components/headers/JsonContentTypeHeader";
+import TextContentTypeHeader from "./components/headers/TextContentTypeHeader";
+import XmlContentTypeHeader from "./components/headers/XmlContentTypeHeader";
 
 export { AtmoRenderer };
 export const Headers = {

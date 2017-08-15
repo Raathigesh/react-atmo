@@ -7,7 +7,17 @@ export default class DelayElement extends BaseElement {
     this.time = 0;
   }
 
+  getSupportedProps() {
+    return {
+      time: true
+    };
+  }
+
   commitMount(newProps) {
+    this.time = newProps.time;
+  }
+
+  commitUpdate(updatePayload, oldProps, newProps) {
     this.time = newProps.time;
   }
 }

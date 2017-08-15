@@ -2,7 +2,6 @@ import BaseElement from "./BaseElement";
 import HeadersElement from "./HeadersElement";
 import ResponseElement from "./ResponseElement";
 import DelayElement from "./DelayElement";
-import Spec from "../lib";
 
 export default class RouteElement extends BaseElement {
   constructor(props, rootContainer, context) {
@@ -26,10 +25,21 @@ export default class RouteElement extends BaseElement {
     }
   }
 
+  getSupportedProps() {
+    return {
+      method: true,
+      url: true
+    };
+  }
+
   commitMount(newProps) {
     this.method = newProps.method;
     this.url = newProps.url;
-    return true;
+  }
+
+  commitUpdate(updatePayload, oldProps, newProps) {
+    this.method = newProps.method;
+    this.url = newProps.url;
   }
 
   removeChild(child) {

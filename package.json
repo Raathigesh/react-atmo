@@ -11,11 +11,11 @@
   "license": "MIT",
   "dependencies": {
     "atmo-core": "^0.1.0",
+    "body-parser": "^1.17.2",
     "chalk": "^2.1.0",
     "express": "^4.15.4",
     "react": "16.0.0-alpha.5",
-    "react-dom": "16.0.0-alpha.5",
-    "shortid": "^2.2.8"
+    "react-dom": "16.0.0-alpha.5"
   },
   "peerDependencies": {},
   "repository": {

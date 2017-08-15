@@ -21,6 +21,15 @@ class Server extends Component {
   render() {
     return (
       <server port="9001">
+        <middlewares>
+          <middleware>
+            {app => {
+              var x = app;
+            }}
+          </middleware>
+          <static path="./" />
+          <bodyparser />
+        </middlewares>
         <route method="get" url="/unicorns">
           <response>
             {() => ({
@@ -33,7 +42,7 @@ class Server extends Component {
             <Headers.JsonContentTypeHeader />
             <header name="x-powered-by" value="Unicorn JS" />
           </headers>
-          {this.state.showElement && <delay time={1000} />}
+          <delay time={this.state.showElement ? 100 : 200} />
         </route>
       </server>
     );

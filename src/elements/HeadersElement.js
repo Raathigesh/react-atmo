@@ -17,4 +17,6 @@ export default class HeadersElement extends BaseElement {
   removeChild(child) {
     this.items = this.items.filter(item => item !== child);
   }
+
+  commitUpdate() {}
 }
