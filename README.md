@@ -229,4 +229,4 @@ Atmo.listen(
 ```
 
 ## Inspiration and Reference
-[React-ionize](https://github.com/mhink/react-ionize) is a react custom renderer which targets electron. I have used react-ionize as a reference to build react-atmo. Infact I have used it as a boilerplate.
+[React-ionize](https://github.com/mhink/react-ionize) is a react custom renderer which targets electron. I have used react-ionize as a reference to build react-atmo. Infact, I have used it as a boilerplate.
