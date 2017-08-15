@@ -22,6 +22,8 @@ Beacause, Why not?
 
 ## Getting Started
 
+Start with the [starter kit](https://github.com/Raathigesh/react-atmo-sample) powered by [backpack](https://github.com/jaredpalmer/backpack).
+
 ```
 yarn add react-atmo
 ```
@@ -52,10 +54,7 @@ Atmo.listen(
   </server>
 );
 ```
-
-**Take a look at the sample project [here](https://github.com/Raathigesh/react-atmo-sample).** Comes with watch mode, thanks to [backpack](https://github.com/jaredpalmer/backpack), a create-react-app like toolchain for node projects.
-
-Also look at the examples [here](https://github.com/Raathigesh/react-atmo/tree/master/examples).
+Have a look at the examples [here](https://github.com/Raathigesh/react-atmo/tree/master/examples).
 
 ## API
 ### `Atmo.listen(element, [callback])`
