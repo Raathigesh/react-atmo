@@ -14,7 +14,7 @@ Atmo.listen(
       <response>
         {() => ({
           name: "Adiana",
-          description: "The fiery one from server 2"
+          description: "The fiery one"
         })}
       </response>
     </route>

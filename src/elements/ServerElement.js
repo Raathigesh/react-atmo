@@ -70,12 +70,15 @@ export default class ServerElement extends BaseElement {
         }
 
         const response = endpoint.response.responseCallBack(req, res);
-        if (endpoint.delay && endpoint.delay.time !== 0) {
-          setTimeout(() => {
+
+        if (typeof response === "object") {
+          if (endpoint.delay && endpoint.delay.time !== 0) {
+            setTimeout(() => {
+              res.send(response);
+            }, endpoint.delay.time);
+          } else {
             res.send(response);
-          }, endpoint.delay.time);
-        } else {
-          res.send(response);
+          }
         }
       });
     }, this);

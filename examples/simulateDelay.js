@@ -7,7 +7,7 @@ Atmo.listen(
       <response>
         {() => ({
           name: "Adiana",
-          description: "The fiery one 13"
+          description: "The fiery one"
         })}
       </response>
       <delay time={3000} />

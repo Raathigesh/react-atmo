@@ -9,7 +9,7 @@
             "request": "launch",
             "name": "Launch Program",
             "console": "internalConsole",
-            "program": "${workspaceRoot}/examples/simulateDelay.js",
+            "program": "${workspaceRoot}/examples/helloWorld.js",
             "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/babel-node.cmd"
         }
     ]

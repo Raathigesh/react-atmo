@@ -10,24 +10,26 @@ npm install --save react-atmo
 
 ## Hello, world!
 
-```js
+```javascript
 import React from "react";
-import Atmo from "react-atmo";
+import Atmo, { Headers } from "../src";
 
 Atmo.listen(
-  <server port="9000">
+  <server port="9001">
+    <middlewares>
+      <bodyparser />
+    </middlewares>
     <route method="get" url="/unicorns">
+      <headers>
+        <Headers.CrossOriginHeader />
+        <Headers.JsonContentTypeHeader />
+      </headers>
       <response>
-        {(request, response) => ({
+        {() => ({
           name: "Adiana",
           description: "The fiery one"
         })}
       </response>
-      <headers>        
-        <jsonContentType />
-        <crossOrigin />
-        <header name="x-powered-by" value="Unicorn JS" />
-      </headers>
     </route>
   </server>
 );
@@ -42,19 +44,19 @@ Starts an express server.
 ## Elements
 ### `<server>`
 Creates a server app and starts listening on the provided port
-* port - Port to start the server
+
+> `port` - Port to start the server
 
 ### `<route>`
 Attaches the route to the express app
-* method - Http method name for the route. Supports all the methods those are supported by express.
-
-* url - Url of the route.
+> `method` - Http method name for the route.
+> `url` - Url of the route.
 
 ### `<response>`
 Represents the response of the route. Takes a function as a children. Whatever the function returns would be returned by the route.
 
-Response function also receives request and response objects of express if you want to do something interesting.
-```
+Response function also receives request and response objects of express, if you want to do something interesting.
+```javascript
 <response>
   {(request, response) => {
     // play with the request and response object of express
@@ -68,25 +70,38 @@ Response function also receives request and response objects of express if you w
 ### `<headers>`
 Takes headers as children.
 
-### `<header>`
+#### `<header>`
 Represents a response header
-
-* name - Header name
+```javascript
+<header name="x-powered-by" value="Unicorn JS" />
+```
+> `name` - Header name  
+> `value` - Header value
   
-* value - Header value
-  
-There are bunch of short hand headers for the commonly used headers as follows.
+There are bunch of headers available for you to use readily.
 
-* <jsonContentType /> - Adds JSON content type header
-* <xmlContentType /> - Adds XML content type header
-* <textContentType /> - Adds text content type header
-* <crossOrigin /> - Cross origin header
+```javascript
+import Atmo, { Headers } from "react-atmo";
+```
+* ```<Headers.JsonContentTypeHeader />``` - Adds JSON content type header
+* ```<Headers.CrossOriginHeader />``` - Adds Cross origin header
 
 ### `<delay>`
-If you are creating a mock API and wants to simulate slowness, delay is the one you are looking for. The time is provided in milliseconds. Delay should be a direct children of an endpoint.
-```
+If you are creating a mock API and wants to simulate slowness, delay is the one you are looking for.
+```javascript
 <delay time={1000} />
 ```
+> `time` - Delay in milliseconds.
+
+
+## <middlewares>
+Accepts ```<middleware />``` as children.
+
+### static middleware
+```javascript
+<static path="./" />
+```
+> `path` | Path of the folder to expose as static directory.
 
 ## Inspiration and Reference
 [React-ionize](https://github.com/mhink/react-ionize) is a react custom renderer which targets electron. I have used react-ionize as a reference to build react-atmo. Infact I have used it as a boilerplate.
