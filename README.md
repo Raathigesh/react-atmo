@@ -45,12 +45,12 @@ Starts an express server.
 ### `<server>`
 Creates a server app and starts listening on the provided port
 
-> `port` - Port to start the server
+> `port` | Port to start the server
 
 ### `<route>`
 Attaches the route to the express app
-> `method` - Http method name for the route.
-> `url` - Url of the route.
+> `method` | Http method name for the route.
+> `url` | Url of the route.
 
 ### `<response>`
 Represents the response of the route. Takes a function as a children. Whatever the function returns would be returned by the route.
@@ -75,10 +75,10 @@ Represents a response header
 ```javascript
 <header name="x-powered-by" value="Unicorn JS" />
 ```
-> `name` - Header name  
-> `value` - Header value
+> `name` | Header name  
+> `value` | Header value
   
-There are bunch of headers available for you to use readily.
+There are bunch of headers available for you to use.
 
 ```javascript
 import Atmo, { Headers } from "react-atmo";
@@ -86,12 +86,29 @@ import Atmo, { Headers } from "react-atmo";
 * ```<Headers.JsonContentTypeHeader />``` - Adds JSON content type header
 * ```<Headers.CrossOriginHeader />``` - Adds Cross origin header
 
+### `<status>`
+> `code` | Satus code number
+
+Childen of the ```<route />``` element.
+
+There are bunch of status codes available for you to use.
+```javascript
+import Atmo, { Status } from "react-atmo";
+```
+
+* ```<Status.Ok />``` - Code 200
+* ```<Status.Unauthorized />``` - Code 401
+* ```<Status.BadRequest />``` - Code 400
+* ```<Status.Forbidden />``` - Code 403
+* ```<Status.NotFound />``` - Code 404
+* ```<Status.InternalServerError />``` - Code 500
+
 ### `<delay>`
 If you are creating a mock API and wants to simulate slowness, delay is the one you are looking for.
 ```javascript
 <delay time={1000} />
 ```
-> `time` - Delay in milliseconds.
+> `time` | Delay in milliseconds.
 
 
 ## <middlewares>

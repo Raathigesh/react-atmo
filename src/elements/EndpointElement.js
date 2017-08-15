@@ -2,6 +2,7 @@ import BaseElement from "./BaseElement";
 import HeadersElement from "./HeadersElement";
 import ResponseElement from "./ResponseElement";
 import DelayElement from "./DelayElement";
+import StatusElement from "./StatusCode";
 
 export default class RouteElement extends BaseElement {
   constructor(props, rootContainer, context) {
@@ -15,6 +16,7 @@ export default class RouteElement extends BaseElement {
     this.delay = null;
     this.method = null;
     this.url = null;
+    this.status = null;
   }
 
   appendChildBeforeMount(child) {
@@ -24,6 +26,8 @@ export default class RouteElement extends BaseElement {
       this.response = child;
     } else if (child instanceof DelayElement) {
       this.delay = child;
+    } else if (child instanceof StatusElement) {
+      this.status = child;
     }
   }
 
@@ -51,6 +55,8 @@ export default class RouteElement extends BaseElement {
       this.headers = null;
     } else if (child instanceof response) {
       this.response = null;
+    } else if (child instanceof StatusElement) {
+      this.status = null;
     }
   }
 }

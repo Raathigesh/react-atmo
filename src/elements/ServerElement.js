@@ -71,6 +71,8 @@ export default class ServerElement extends BaseElement {
 
         const response = endpoint.response.responseCallBack(req, res);
 
+        endpoint.status && res.status(endpoint.status.code);
+
         if (typeof response === "object") {
           if (endpoint.delay && endpoint.delay.time !== 0) {
             setTimeout(() => {

@@ -9,6 +9,7 @@ import MiddlewaresElement from "./MiddlewaresElement";
 import MiddlewareElement from "./middlewares/Generic";
 import StaticMiddleware from "./middlewares/Static";
 import BodyParserMiddleware from "./middlewares/BodyParser";
+import StatusCode from "./StatusCode";
 
 export { BaseElement, ServerElement, RouteElement };
 
@@ -56,6 +57,10 @@ export function createExpressInstance(type, props, container, context) {
 
     case "static": {
       return new StaticMiddleware(props, container);
+    }
+
+    case "status": {
+      return new StatusCode(props, container);
     }
   }
 }
