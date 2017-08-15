@@ -1,8 +1,8 @@
-<h1 align="center">
- React Atmo 
-</h1>
+<div align="center">
+ <img src="./docs/ReactAtmo.png" width="400" alt="react-atmo" > 
+</div>
 
-<p align="center">
+<p align="center"> 
   <a href="https://github.com/Raathigesh/react-atmo/blob/master/LICENSE">
     <img src="https://img.shields.io/npm/l/express.svg?maxAge=2592000&style=flat-square"
          alt="License">
