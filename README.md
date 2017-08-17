@@ -161,7 +161,7 @@ Your own, custom middleware.
 ### `<servers>`
 When you are not happy with a single instance and wants multiple apps listening on different ports.
 
-```javascripts
+```javascript
 import React, { Component } from "react";
 import Atmo from "react-atmo";
 
